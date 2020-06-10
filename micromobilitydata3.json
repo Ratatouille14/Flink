@@ -1,0 +1,101 @@
+[
+		{
+			"name": "경기도 성남시 분당구 안골로 39",
+			"coordinates": [
+				37.3863811,
+				127.1360916
+			],
+			"team_num": 3,
+			"area_num": 1,
+			"capacity": 2,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 안골로48번길 7",
+			"coordinates": [
+				37.38570809,
+				127.13707690000001
+			],
+			"team_num": 3,
+			"area_num": 1,
+			"capacity": 2,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 안골로48번길 8",
+			"coordinates": [
+				37.38519228,
+				127.1364193
+			],
+			"team_num": 3,
+			"area_num": 1,
+			"capacity": 2,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 돌마로 569",
+			"coordinates": [
+				37.38386864,
+				127.13798659999999
+			],
+			"team_num": 3,
+			"area_num": 1,
+			"capacity": 2,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로51번길 17",
+			"coordinates": [
+				37.38434917,
+				127.1374287
+			],
+			"team_num": 3,
+			"area_num": 1,
+			"capacity": 2,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로51번길 3",
+			"coordinates": [
+				37.38368483,
+				127.13648159999998
+			],
+			"team_num": 3,
+			"area_num": 1,
+			"capacity": 2,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 서현로237번길 16",
+			"coordinates": [
+				37.38584828,
+				127.12926909999999
+			],
+			"team_num": 3,
+			"area_num": 1,
+			"capacity": 2,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 서현로247번길 12",
+			"coordinates": [
+				37.38532224,
+				127.1300193
+			],
+			"team_num": 3,
+			"area_num": 1,
+			"capacity": 2,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 서현로237번길 27",
+			"coordinates": [
+				37.38551866,
+				127.13013629999999
+			],
+			"team_num": 3,
+			"area_num": 1,
+			"capacity": 2,
+			"weight": 4
+		}
+	]
