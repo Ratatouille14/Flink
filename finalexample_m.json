@@ -1,0 +1,79 @@
+[
+		{
+			"name": "경기도 성남시 분당구 새마을로233번길 9",
+			"coordinates": [
+				37.3880801,
+				127.15488090000001
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로233번길 13",
+			"coordinates": [
+				37.38814699,
+				127.15463909999998
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로233번길 3",
+			"coordinates": [
+				37.38761567,
+				127.15480749999999
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 3
+		},
+		{
+			"name": "경기도 성남시 분당구 서현로210번길 2",
+			"coordinates": [
+				37.38683922,
+				127.1254827
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 서현로 216",
+			"coordinates": [
+				37.38621514,
+				127.1262335
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 서현로210번길 1",
+			"coordinates": [
+				37.38645866,
+				127.1259386
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 서현로 204",
+			"coordinates": [
+				37.38711886,
+				127.1252081
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 2
+		}
+	]

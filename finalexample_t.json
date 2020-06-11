@@ -1,0 +1,937 @@
+[
+		{
+			"name": "경기도 성남시 분당구 새마을로165번길 19",
+			"coordinates": [
+				37.3850689,
+				127.148924
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로165번길 21",
+			"coordinates": [
+				37.38535076,
+				127.1493794
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로165번길 22",
+			"coordinates": [
+				37.38524568,
+				127.14962990000001
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로165번길 29",
+			"coordinates": [
+				37.38582651,
+				127.14944080000001
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 3
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로165번길 35",
+			"coordinates": [
+				37.38592606,
+				127.1492087
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로165번길 36",
+			"coordinates": [
+				37.38643834,
+				127.1494633
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 3
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로165번길 38",
+			"coordinates": [
+				37.38691795,
+				127.14933470000001
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로165번길 11",
+			"coordinates": [
+				37.38444337,
+				127.14887320000001
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로165번길 9",
+			"coordinates": [
+				37.38424176,
+				127.14888329999998
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로165번길 8",
+			"coordinates": [
+				37.38401125,
+				127.149056
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로 165",
+			"coordinates": [
+				37.38364691,
+				127.1489038
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로165번길 6",
+			"coordinates": [
+				37.38387526,
+				127.1491554
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로175번길 7",
+			"coordinates": [
+				37.38396497,
+				127.1493767
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로175번길 4",
+			"coordinates": [
+				37.38388331,
+				127.1499878
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 3
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로 173",
+			"coordinates": [
+				37.38369661,
+				127.14970559999999
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 서현로210번길 2",
+			"coordinates": [
+				37.38683922,
+				127.1254827
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 황새울로 321",
+			"coordinates": [
+				37.38532893,
+				127.12108549999999
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 황새울로319번길 6",
+			"coordinates": [
+				37.38546985,
+				127.1207861
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 황새울로319번길 8-4",
+			"coordinates": [
+				37.38557851,
+				127.1209423
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 황새울로319번길 8-6",
+			"coordinates": [
+				37.38566929,
+				127.12114229999999
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 3
+		},
+		{
+			"name": "경기도 성남시 분당구 황새울로329번길 5",
+			"coordinates": [
+				37.38581397,
+				127.12128419999999
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 황새울로 325",
+			"coordinates": [
+				37.38556654,
+				127.121426
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 서현로 200",
+			"coordinates": [
+				37.38741103,
+				127.12496029999998
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 3
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로 72",
+			"coordinates": [
+				37.376554399999996,
+				127.1524114
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로 145",
+			"coordinates": [
+				37.38089966,
+				127.15108670000001
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로 130",
+			"coordinates": [
+				37.38120066,
+				127.1518916
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로 45",
+			"coordinates": [
+				37.37463355,
+				127.150575
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로 225",
+			"coordinates": [
+				37.38680599,
+				127.15417009999999
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 3
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로 255",
+			"coordinates": [
+				37.38968677,
+				127.15564170000002
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로233번길 5",
+			"coordinates": [
+				37.3878651,
+				127.1545345
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 3
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로233번길 9",
+			"coordinates": [
+				37.3880801,
+				127.15488090000001
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로233번길 16",
+			"coordinates": [
+				37.3886195,
+				127.15476399999999
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로 229",
+			"coordinates": [
+				37.38708425,
+				127.1541392
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 3
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로 181",
+			"coordinates": [
+				37.38406783,
+				127.1506308
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 만세길 10",
+			"coordinates": [
+				37.38384862,
+				127.15157859999998
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로148번길 10-1",
+			"coordinates": [
+				37.38324614,
+				127.1516717
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로148번길 4",
+			"coordinates": [
+				37.38305772,
+				127.15159779999999
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로148번길 6",
+			"coordinates": [
+				37.38321524,
+				127.1515222
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로148번길 5",
+			"coordinates": [
+				37.3833848,
+				127.1513145
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로 150",
+			"coordinates": [
+				37.38316226,
+				127.1511348
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 3
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로148번길 9",
+			"coordinates": [
+				37.38354843,
+				127.15141329999999
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로148번길 12",
+			"coordinates": [
+				37.38350466,
+				127.1518562
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로148번길 14",
+			"coordinates": [
+				37.38360768,
+				127.1520047
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 만세길 12",
+			"coordinates": [
+				37.38394745,
+				127.1518676
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 만세길 20",
+			"coordinates": [
+				37.38392769,
+				127.1524106
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 만세길 17",
+			"coordinates": [
+				37.38418279,
+				127.1518029
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 만세길 14",
+			"coordinates": [
+				37.38410693,
+				127.15205959999999
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 만세길 18",
+			"coordinates": [
+				37.38425601,
+				127.15217959999998
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 만세길 33-8",
+			"coordinates": [
+				37.38479521,
+				127.1542987
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 만세길 33-7",
+			"coordinates": [
+				37.38495357,
+				127.153772
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로 192",
+			"coordinates": [
+				37.38471007,
+				127.1529287
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 만세길 9",
+			"coordinates": [
+				37.3839665,
+				127.1514178
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 3
+		},
+		{
+			"name": "경기도 성남시 분당구 만세길 8",
+			"coordinates": [
+				37.38370045,
+				127.15136820000001
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 만세길 4",
+			"coordinates": [
+				37.38349698,
+				127.151146
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 3
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로 154",
+			"coordinates": [
+				37.3836789,
+				127.1509701
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로175번길 6",
+			"coordinates": [
+				37.38400556,
+				127.1497804
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 3
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로175번길 9",
+			"coordinates": [
+				37.38410067,
+				127.1491777
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로177번길 5",
+			"coordinates": [
+				37.38409618,
+				127.14994509999998
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로175번길 8-1",
+			"coordinates": [
+				37.38427649,
+				127.1495602
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로177번길 7",
+			"coordinates": [
+				37.38428849,
+				127.1498362
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로175번길 8-5",
+			"coordinates": [
+				37.38443421,
+				127.149551
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로177번길 7-8",
+			"coordinates": [
+				37.384665600000005,
+				127.14934309999998
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로177번길 19",
+			"coordinates": [
+				37.38508301,
+				127.149882
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로177번길 13",
+			"coordinates": [
+				37.38491352,
+				127.1497218
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로177번길 7-4",
+			"coordinates": [
+				37.38456805,
+				127.14988079999999
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로 156",
+			"coordinates": [
+				37.38366606,
+				127.15080490000001
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 3
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로 140",
+			"coordinates": [
+				37.38234623,
+				127.1514344
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로 138",
+			"coordinates": [
+				37.38213256,
+				127.15154199999999
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로140번길 6",
+			"coordinates": [
+				37.38220624,
+				127.15170970000001
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 3
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로140번길 7",
+			"coordinates": [
+				37.38247264,
+				127.15187720000002
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로140번길 9",
+			"coordinates": [
+				37.38251607,
+				127.15208390000002
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로140번길 10",
+			"coordinates": [
+				37.38239325,
+				127.15246640000001
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로144번길 4",
+			"coordinates": [
+				37.38253727,
+				127.1516305
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로 146",
+			"coordinates": [
+				37.38275953,
+				127.1513506
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로144번길 5",
+			"coordinates": [
+				37.38283336,
+				127.15156699999999
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 3
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로144번길 6",
+			"coordinates": [
+				37.38265607,
+				127.15178459999998
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로144번길 11",
+			"coordinates": [
+				37.38301479,
+				127.1523244
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 3
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로 136",
+			"coordinates": [
+				37.38199974,
+				127.1516203
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로 134-3",
+			"coordinates": [
+				37.38201955,
+				127.15182639999999
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로 134-4",
+			"coordinates": [
+				37.38182168,
+				127.15197409999999
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 1
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로 134-6",
+			"coordinates": [
+				37.38207779,
+				127.15247279999998
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 4
+		},
+		{
+			"name": "경기도 성남시 분당구 문정로 134-5",
+			"coordinates": [
+				37.38207976,
+				127.15197859999998
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 3
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로177번길 7-7",
+			"coordinates": [
+				37.38442747,
+				127.1491938
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 2
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로165번길 13",
+			"coordinates": [
+				37.38460972,
+				127.1487362
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 2,
+			"weight": 3
+		},
+		{
+			"name": "경기도 성남시 분당구 새마을로165번길 17",
+			"coordinates": [
+				37.38477852,
+				127.14902839999999
+			],
+			"team_num": 3,
+			"area_num": 10,
+			"capacity": 1,
+			"weight": 4
+		}
+	]

@@ -1,0 +1,980 @@
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!--link color : black-->
+        <style type="text/css">
+            a:link {color:black; text-decoration:none;}
+            a:visited {color:black; text-decoration: none;}
+            a:hover {color:black; text-decoration:none;}
+            a:active {color:black; text-decoration:none;}
+        </style>
+
+        <style>
+            #test_btn1{
+                border: 1px solid #4169E1;
+                background-color:#4169E1;
+                color:white;
+                margin-right: 5px;
+
+            }
+            #test_btn2{
+                border: 1px solid #4169E1;
+                background-color: rgba(0,0,0,0);
+                color: #4169E1;
+                margin-right: 5px;
+
+            }
+            #test_btn3{
+                border: 1px solid #4169E1;
+                background-color: rgba(0,0,0,0);
+                color: #4169E1;
+
+            }
+
+            #btn_group button{
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius:5px;
+
+  
+                padding:5px;
+            }
+            #btn_group button:hover{
+                color:white;
+                background-color:#4169E1;
+
+            }
+        </style>
+
+
+
+
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom fonts for this template -->
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+        <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+        <!-- Custom styles for this template -->
+        <link href="css/landing-page.min.css" rel="stylesheet">
+
+
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Flink 경로 안내</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://apis.openapi.sk.com/tmap/jsv2?version=1&appKey=l7xx84909dae75d54ef8a634e5f6be023dd1"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script type="text/javascript">
+            
+            
+
+
+
+                var map;
+                
+                var marker_s, marekr_e, waypoint;
+                var resultMarkerArr = [];
+                //경로그림정보
+                var drawInfoArr = [];
+                var resultInfoArr = [];
+                
+                function initTmap(){
+                    resultMarkerArr = [];
+                    
+                    //지도
+                    map = new Tmapv2.Map("map_div", {
+                        center: new Tmapv2.LatLng(37.384036, 127.134071),
+                        width : "1300px",
+                        height : "750px",
+                        zoom : 15,
+                        zoomControl : true,
+                        scrollwheel : false
+                        
+                    });
+                    
+                    $(document).ready(function(){
+
+
+                    $.getJSON("finalexample_t.json", function(data){
+                    $.getJSON("finalexample_m.json", function(mdata){
+
+
+
+                    //시작, 도착 마커
+                    //시작
+                    marker_s = new Tmapv2.Marker({
+                        position : new Tmapv2.LatLng(data[0].coordinates[0], data[0].coordinates[1]),
+                        icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",
+                        iconSize : new Tmapv2.Size(24, 38),
+                        map:map
+                    });
+                    resultMarkerArr.push(marker_s);
+                    
+
+                    //경유지
+                    for(var i=1; i<data.length;i++){
+
+
+                    marker = new Tmapv2.Marker({
+                        position : new Tmapv2.LatLng(data[i].coordinates[0], data[i].coordinates[1]),
+                        icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_t.png",
+                        iconSize : new Tmapv2.Size(24, 38),
+                        map:map
+                    });
+                    resultMarkerArr.push(marker);
+                };
+                    
+
+
+
+                    
+                    
+                    
+                    
+                    
+                    //micro mobility 배송지
+                    for(var i=0; i<mdata.length;i++){
+
+
+                    marker = new Tmapv2.Marker({
+                        position : new Tmapv2.LatLng(mdata[i].coordinates[0],mdata[i].coordinates[1]),
+                        icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_g_m_m.png",
+                        iconSize : new Tmapv2.Size(24, 38),
+                        map:map
+                    });
+                    resultMarkerArr.push(marker);
+                };
+
+
+
+
+                    
+                    //경로탐색 API 사용요청
+                    var routeLayer; 
+                    $("#btn_select").click(function(){
+                
+                        var searchOption = $("#selectLevel").val();
+                        
+                        var headers = {}; 
+                        headers["appKey"]="l7xx84909dae75d54ef8a634e5f6be023dd1";
+                        headers["Content-Type"]="application/json";
+                        
+                        var param = JSON.stringify({
+                            "startName" : "출발지",
+                            "startX" : "127.148924",
+                            "startY" : "37.3850689",
+                            "startTime" : "202005201103",
+                            "endName" : "도착지",
+                            "endX" : "127.148924",
+                            "endY" : "37.3850689",
+                            "viaPoints" : 
+                                [
+                                 {
+                                     "viaPointId" : "test01",
+                                     "viaPointName" : "name01",
+                                     "viaX" : "127.1493794" ,//
+                                     "viaY" : "37.38535076" //
+                                 },
+                                 {
+                                     "viaPointId" : "test02",
+                                     "viaPointName" : "name02",
+                                     "viaX" : "127.14962990000001" ,//
+                                     "viaY" : "37.38524568" //
+                                 },
+                                 {
+                                     "viaPointId" : "test03",
+                                     "viaPointName" : "name03",
+                                     "viaX" : "127.14944080000001" ,//
+                                     "viaY" : "37.38582651" //
+                                 },
+                                 {
+                                     "viaPointId" : "test04",
+                                     "viaPointName" : "name04",
+                                     "viaX" : "127.1492087" ,//
+                                     "viaY" : "37.38592606" //
+                                 },
+                                 {
+                                     "viaPointId" : "test05",
+                                     "viaPointName" : "name05",
+                                     "viaX" : "127.1494633" ,//
+                                     "viaY" : "37.38643834" //
+                                 },
+                                 {
+                                     "viaPointId" : "test06",
+                                     "viaPointName" : "name06",
+                                     "viaX" : "127.14933470000001" ,//
+                                     "viaY" : "37.38691795" //
+                                 },
+                                 {
+                                     "viaPointId" : "test07",
+                                     "viaPointName" : "name07",
+                                     "viaX" : "127.14887320000001" ,//
+                                     "viaY" : "37.38444337" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test08",
+                                     "viaPointName" : "name08",
+                                     "viaX" : "127.14888329999998" ,//
+                                     "viaY" : "37.38424176" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test09",
+                                     "viaPointName" : "name09",
+                                     "viaX" : "127.149056" ,//
+                                     "viaY" : "37.38401125" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test10",
+                                     "viaPointName" : "name10",
+                                     "viaX" : "127.1489038" ,//
+                                     "viaY" : "37.38364691" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test11",
+                                     "viaPointName" : "name11",
+                                     "viaX" : "127.1491554" ,//
+                                     "viaY" : "37.38387526" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test12",
+                                     "viaPointName" : "name12",
+                                     "viaX" : "127.1493767" ,//
+                                     "viaY" : "37.38396497" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test13",
+                                     "viaPointName" : "name13",
+                                     "viaX" : "127.1499878" ,//
+                                     "viaY" : "37.38388331" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test14",
+                                     "viaPointName" : "name14",
+                                     "viaX" : "127.14970559999999" ,//
+                                     "viaY" : "37.38369661" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test15",
+                                     "viaPointName" : "name15",
+                                     "viaX" : "127.1254827" ,//
+                                     "viaY" : "37.38683922" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test16",
+                                     "viaPointName" : "name16",
+                                     "viaX" : "127.12108549999999" ,//
+                                     "viaY" : "37.38532893" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test17",
+                                     "viaPointName" : "name17",
+                                     "viaX" : "127.1207861" ,//
+                                     "viaY" : "37.38546985" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test18",
+                                     "viaPointName" : "name18",
+                                     "viaX" : "127.1209423" ,//
+                                     "viaY" : "37.38557851" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test19",
+                                     "viaPointName" : "name19",
+                                     "viaX" : "127.12114229999999" ,//
+                                     "viaY" : "37.38566929" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test20",
+                                     "viaPointName" : "name20",
+                                     "viaX" : "127.12128419999999" ,//
+                                     "viaY" : "37.38581397" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test21",
+                                     "viaPointName" : "name21",
+                                     "viaX" : "127.121426" ,//
+                                     "viaY" : "37.38556654" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test22",
+                                     "viaPointName" : "name22",
+                                     "viaX" : "127.12496029999998" ,//
+                                     "viaY" : "37.38741103" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test23",
+                                     "viaPointName" : "name23",
+                                     "viaX" : "127.1524114" ,//
+                                     "viaY" : "37.376554399999996" //
+                                 },
+                                 {
+                                     "viaPointId" : "test24",
+                                     "viaPointName" : "name24",
+                                     "viaX" : "127.15108670000001" ,//
+                                     "viaY" : "37.38089966" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test25",
+                                     "viaPointName" : "name25",
+                                     "viaX" : "127.1518916" ,//
+                                     "viaY" : "37.38120066" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test26",
+                                     "viaPointName" : "name26",
+                                     "viaX" : "127.150575" ,//
+                                     "viaY" : "37.37463355" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test27",
+                                     "viaPointName" : "name27",
+                                     "viaX" : "127.15417009999999" ,//
+                                     "viaY" : "37.38680599" //
+                                 },
+                                 {
+                                     "viaPointId" : "test28",
+                                     "viaPointName" : "name28",
+                                     "viaX" : "127.15564170000002" ,//
+                                     "viaY" : "37.38968677" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test29",
+                                     "viaPointName" : "name29",
+                                     "viaX" : "127.1545345" ,//
+                                     "viaY" : "37.3878651" //
+                                 },
+                                 {
+                                     "viaPointId" : "test30",
+                                     "viaPointName" : "name30",
+                                     "viaX" : "127.15488090000001" ,//
+                                     "viaY" : "37.3880801" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test31",
+                                     "viaPointName" : "name31",
+                                     "viaX" : "127.15476399999999" ,//
+                                     "viaY" : "37.3886195" //
+                                 },
+                                 {
+                                     "viaPointId" : "test32",
+                                     "viaPointName" : "name32",
+                                     "viaX" : "127.1541392" ,//
+                                     "viaY" : "37.38708425" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test33",
+                                     "viaPointName" : "name33",
+                                     "viaX" : "127.1506308" ,//
+                                     "viaY" : "37.38406783" //
+                                 },
+                                 {
+                                     "viaPointId" : "test34",
+                                     "viaPointName" : "name34",
+                                     "viaX" : "127.15157859999998" ,//
+                                     "viaY" : "37.38384862" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test35",
+                                     "viaPointName" : "name35",
+                                     "viaX" : "127.1516717" ,//
+                                     "viaY" : "37.38324614" //
+                                 },
+                                 {
+                                     "viaPointId" : "test36",
+                                     "viaPointName" : "name36",
+                                     "viaX" : "127.15159779999999" ,//
+                                     "viaY" : "37.38305772" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test37",
+                                     "viaPointName" : "name37",
+                                     "viaX" : "127.1515222" ,//
+                                     "viaY" : "37.38321524" //
+                                 },
+                                 {
+                                     "viaPointId" : "test38",
+                                     "viaPointName" : "name38",
+                                     "viaX" : "127.1513145" ,//
+                                     "viaY" : "37.3833848" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test39",
+                                     "viaPointName" : "name39",
+                                     "viaX" : "127.1511348" ,//
+                                     "viaY" : "37.38316226" //
+                                 },
+                                 {
+                                     "viaPointId" : "test40",
+                                     "viaPointName" : "name40",
+                                     "viaX" : "127.15141329999999" ,//
+                                     "viaY" : "37.38354843" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test41",
+                                     "viaPointName" : "name41",
+                                     "viaX" : "127.1518562" ,//
+                                     "viaY" : "37.38350466" //
+                                 },
+                                 {
+                                     "viaPointId" : "test42",
+                                     "viaPointName" : "name42",
+                                     "viaX" : "127.1520047" ,//
+                                     "viaY" : "37.38360768" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test43",
+                                     "viaPointName" : "name43",
+                                     "viaX" : "127.1518676" ,//
+                                     "viaY" : "37.38394745" //
+                                 },
+                                 {
+                                     "viaPointId" : "test44",
+                                     "viaPointName" : "name44",
+                                     "viaX" : "127.1524106" ,//
+                                     "viaY" : "37.38392769" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test45",
+                                     "viaPointName" : "name45",
+                                     "viaX" : "127.1518029" ,//
+                                     "viaY" : "37.38418279" //
+                                 },
+                                 {
+                                     "viaPointId" : "test46",
+                                     "viaPointName" : "name46",
+                                     "viaX" : "127.15205959999999" ,//
+                                     "viaY" : "37.38410693" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test47",
+                                     "viaPointName" : "name47",
+                                     "viaX" : "127.15217959999998" ,//
+                                     "viaY" : "37.38425601" //
+                                 },
+                                 {
+                                     "viaPointId" : "test48",
+                                     "viaPointName" : "name48",
+                                     "viaX" : "127.1542987" ,//
+                                     "viaY" : "37.38479521" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test49",
+                                     "viaPointName" : "name49",
+                                     "viaX" : "127.153772" ,//
+                                     "viaY" : "37.38495357" //
+                                 },
+                                 {
+                                     "viaPointId" : "test50",
+                                     "viaPointName" : "name50",
+                                     "viaX" : "127.1529287" ,//
+                                     "viaY" : "37.38471007" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test51",
+                                     "viaPointName" : "name51",
+                                     "viaX" : "127.1514178" ,//
+                                     "viaY" : "37.3839665" //
+                                 },
+                                 {
+                                     "viaPointId" : "test52",
+                                     "viaPointName" : "name52",
+                                     "viaX" : "127.15136820000001" ,//
+                                     "viaY" : "37.38370045" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test53",
+                                     "viaPointName" : "name53",
+                                     "viaX" : "127.151146" ,//
+                                     "viaY" : "37.38349698" //
+                                 },
+                                 {
+                                     "viaPointId" : "test54",
+                                     "viaPointName" : "name54",
+                                     "viaX" : "127.1509701" ,//
+                                     "viaY" : "37.3836789" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test55",
+                                     "viaPointName" : "name55",
+                                     "viaX" : "127.1497804" ,//
+                                     "viaY" : "37.38400556" //
+                                 },
+                                 {
+                                     "viaPointId" : "test56",
+                                     "viaPointName" : "name56",
+                                     "viaX" : "127.1491777" ,//
+                                     "viaY" : "37.38410067" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test57",
+                                     "viaPointName" : "name57",
+                                     "viaX" : "127.14994509999998" ,//
+                                     "viaY" : "37.38409618" //
+                                 },
+                                 {
+                                     "viaPointId" : "test58",
+                                     "viaPointName" : "name58",
+                                     "viaX" : "127.1495602" ,//
+                                     "viaY" : "37.38427649" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test59",
+                                     "viaPointName" : "name59",
+                                     "viaX" : "127.1498362" ,//
+                                     "viaY" : "37.38428849" //
+                                 },
+                                 {
+                                     "viaPointId" : "test60",
+                                     "viaPointName" : "name60",
+                                     "viaX" : "127.149551" ,//
+                                     "viaY" : "37.38443421" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test61",
+                                     "viaPointName" : "name61",
+                                     "viaX" : "127.14934309999998" ,//
+                                     "viaY" : "37.384665600000005" //
+                                 },
+                                 {
+                                     "viaPointId" : "test62",
+                                     "viaPointName" : "name62",
+                                     "viaX" : "127.149882" ,//
+                                     "viaY" : "37.38508301" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test63",
+                                     "viaPointName" : "name63",
+                                     "viaX" : "127.1497218" ,//
+                                     "viaY" : "37.38491352" //
+                                 },
+                                 {
+                                     "viaPointId" : "test64",
+                                     "viaPointName" : "name64",
+                                     "viaX" : "127.14988079999999" ,//
+                                     "viaY" : "37.38456805" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test65",
+                                     "viaPointName" : "name65",
+                                     "viaX" : "127.15080490000001" ,//
+                                     "viaY" : "37.38366606" //
+                                 },
+                                 {
+                                     "viaPointId" : "test66",
+                                     "viaPointName" : "name66",
+                                     "viaX" : "127.1514344" ,//
+                                     "viaY" : "37.38234623" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test67",
+                                     "viaPointName" : "name67",
+                                     "viaX" : "127.15154199999999" ,//
+                                     "viaY" : "37.38213256" //
+                                 },
+                                 {
+                                     "viaPointId" : "test68",
+                                     "viaPointName" : "name68",
+                                     "viaX" : "127.15170970000001" ,//
+                                     "viaY" : "37.38220624" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test69",
+                                     "viaPointName" : "name69",
+                                     "viaX" : "127.15187720000002" ,//
+                                     "viaY" : "37.38247264" //
+                                 },
+                                 {
+                                     "viaPointId" : "test70",
+                                     "viaPointName" : "name70",
+                                     "viaX" : "127.15208390000002" ,//
+                                     "viaY" : "37.38251607" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test71",
+                                     "viaPointName" : "name31",
+                                     "viaX" : "127.15246640000001" ,//
+                                     "viaY" : "37.38239325" //
+                                 },
+                                 {
+                                     "viaPointId" : "test72",
+                                     "viaPointName" : "name32",
+                                     "viaX" : "127.1516305" ,//
+                                     "viaY" : "37.38253727" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test73",
+                                     "viaPointName" : "name33",
+                                     "viaX" : "127.1513506" ,//
+                                     "viaY" : "37.38275953" //
+                                 },
+                                 {
+                                     "viaPointId" : "test74",
+                                     "viaPointName" : "name34",
+                                     "viaX" : "127.15156699999999" ,//
+                                     "viaY" : "37.38283336" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test75",
+                                     "viaPointName" : "name75",
+                                     "viaX" : "127.15178459999998" ,//
+                                     "viaY" : "37.38265607" //
+                                 },
+                                 {
+                                     "viaPointId" : "test76",
+                                     "viaPointName" : "name76",
+                                     "viaX" : "127.1523244" ,//
+                                     "viaY" : "37.38301479" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test77",
+                                     "viaPointName" : "name77",
+                                     "viaX" : "127.1516203" ,//
+                                     "viaY" : "37.38199974" //
+                                 },
+                                 {
+                                     "viaPointId" : "test78",
+                                     "viaPointName" : "name78",
+                                     "viaX" : "127.15182639999999" ,//
+                                     "viaY" : "37.38201955" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test79",
+                                     "viaPointName" : "name79",
+                                     "viaX" : "127.15197409999999" ,//
+                                     "viaY" : "37.38182168" //
+                                 },
+                                 {
+                                     "viaPointId" : "test80",
+                                     "viaPointName" : "name80",
+                                     "viaX" : "127.15247279999998" ,//
+                                     "viaY" : "37.38207779" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test81",
+                                     "viaPointName" : "name81",
+                                     "viaX" : "127.15197859999998" ,//
+                                     "viaY" : "37.38207976" //
+                                 },
+                                 {
+                                     "viaPointId" : "test82",
+                                     "viaPointName" : "name82",
+                                     "viaX" : "127.1491938" ,//
+                                     "viaY" : "37.38442747" //
+                                 }
+                                 ,
+                                 {
+                                     "viaPointId" : "test83",
+                                     "viaPointName" : "name83",
+                                     "viaX" : "127.1487362" ,//
+                                     "viaY" : "37.38460972" //
+                                 },
+                                 {
+                                     "viaPointId" : "test84",
+                                     "viaPointName" : "name84",
+                                     "viaX" : "127.14902839999999" ,//
+                                     "viaY" : "37.38477852" //
+                                 }
+                                ],
+                            "reqCoordType" : "WGS84GEO",
+                            "resCoordType" : "EPSG3857",
+                            "searchOption": searchOption
+                        });
+                        
+                        $.ajax({
+                                method:"POST",
+                                url:"https://apis.openapi.sk.com/tmap/routes/routeSequential100?version=1&format=json",//
+                                headers : headers,
+                                async:false,
+                                data:param,
+                                success:function(response){
+                
+                                    var resultData = response.properties;
+                                    var resultFeatures = response.features;
+                                    
+                                    
+                                    
+                                    //기존  라인 초기화
+                                    
+                                    if(resultInfoArr.length>0){
+                                        for(var i in resultInfoArr){
+                                            resultInfoArr[i].setMap(null);
+                                        }
+                                        resultInfoArr=[];
+                                    }
+                                    
+                                    for(var i in resultFeatures) {
+                                        var geometry = resultFeatures[i].geometry;
+                                        var properties = resultFeatures[i].properties;
+                                        var polyline_;
+                                        
+                                        drawInfoArr = [];
+                                        
+                                        if(geometry.type == "LineString") {
+                                            for(var j in geometry.coordinates){
+                                                // 경로들의 결과값(구간)들을 포인트 객체로 변환 
+                                                var latlng = new Tmapv2.Point(geometry.coordinates[j][0], geometry.coordinates[j][1]);
+                                                // 포인트 객체를 받아 좌표값으로 변환
+                                                var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlng);
+                                                // 포인트객체의 정보로 좌표값 변환 객체로 저장
+                                                var convertChange = new Tmapv2.LatLng(convertPoint._lat, convertPoint._lng);
+                                                
+                                                drawInfoArr.push(convertChange);
+                                            }
+                
+                                            polyline_ = new Tmapv2.Polyline({
+                                                path : drawInfoArr,
+                                                strokeColor : "#000000",
+                                                strokeWeight: 6,
+                                                map : map
+                                            });
+                                            resultInfoArr.push(polyline_);
+                                            
+                                        }else{
+                                            var markerImg = "";
+                                            var size = "";          //아이콘 크기 설정
+                                            
+                                            if(properties.pointType == "S"){    //출발지 마커
+                                                markerImg = "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_s.png";   
+                                                size = new Tmapv2.Size(24, 38);
+                                            }else if(properties.pointType == "E"){  //도착지 마커
+                                                markerImg = "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_e.png";
+                                                size = new Tmapv2.Size(24, 38);
+                                            }else{  //각 포인트 마커
+                                                markerImg = "http://topopen.tmap.co.kr/imgs/point.png";
+                                                size = new Tmapv2.Size(8, 8);
+                                            }
+                                            
+                                            // 경로들의 결과값들을 포인트 객체로 변환 
+                                            var latlon = new Tmapv2.Point(geometry.coordinates[0], geometry.coordinates[1]);
+                                            // 포인트 객체를 받아 좌표값으로 다시 변환
+                                            var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlon);
+                                            
+                                            marker_p = new Tmapv2.Marker({
+                                                position: new Tmapv2.LatLng(convertPoint._lat, convertPoint._lng),
+                                                icon : markerImg,
+                                                iconSize : size,
+                                                map:map
+                                            });
+                                            
+                                            resultMarkerArr.push(marker_p);
+                                        }
+                                    }
+                                },
+                                error:function(request,status,error){
+                                    console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                                }
+                            });
+                    });
+});
+});
+});
+                }
+            
+                function addComma(num) {
+                      var regexp = /\B(?=(\d{3})+(?!\d))/g;
+                       return num.toString().replace(regexp, ',');
+                }
+
+            
+        </script>
+    </head>
+    <body>
+
+
+      <!-- Navigation -->
+  <nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="index_l.html">Flink</a>
+    </div>
+  </nav>
+
+  <!-- Masthead -->
+  <header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h1 class="mb-5">Flink 경로 안내</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+    <!-- 맵 생성 실행 -->
+
+    <body onload="initTmap()">
+   <div style="padding:120px 80px 140px 180px;">
+
+    <div id="btn_group">
+        <button id="test_btn1" onclick="location.href='route.html'">배달원 A</button>
+        <button id="test_btn2" onclick="location.href='route_b.html'">배달원 B</button>
+        <button id="test_btn3" onclick="location.href='route_c.html'">배달원 C</button>
+    </div>
+
+    <div style="text-align: center;">
+        <h2 style="font-size: 50px; display: inline-block;">A</h2>
+        <h2 style="display: inline-block;"> 님의 오늘 배달할 물량은 </h2>
+        <h2 style="font-size: 70px; color:#5050FF; display: inline-block;">90</h2>
+        <h2 style="display: inline-block;"> 개 입니다!</h2>
+    </div>
+
+    <br>
+
+    <div style="text-align: center;">
+        <h2 style="display: inline-block;">배송 예정 소요 시간은 약 </h2>
+        <h2 style="font-size: 50px; color:#5050FF; display: inline-block;"> 00 </h2>
+        <h2 style="display: inline-block;"> 시간 </h2>
+        <h2 style="font-size: 50px; color:#5050FF; display: inline-block;">45</h2>
+        <h2 style="display: inline-block;"> 분 입니다.</h2>
+    </div>
+
+    <br>
+
+    <div style="text-align: center;">
+        <h2 style="display: inline-block;">모빌리티 환승 횟수는 총 </h2>
+        <h2 style="font-size: 50px; color:#5050FF; display: inline-block;">2</h2>
+        <h2 style="display: inline-block;"> 회 입니다.</h2>
+    </div>
+
+    <br> 
+    <br>
+    <h3>트럭 경로 및 배송지 안내</h3>
+    <br>
+    
+
+    <p id="result"></p>
+        <select id="selectLevel">
+            <option value="0" selected="selected">교통최적+추천</option>
+            <option value="1" >교통최적+무료우선</option>
+            <option value="2" >교통최적+최소시간</option>
+            <option value="3" >교통최적+초보</option>
+        </select>
+
+        <button 
+        type="button"
+        id="btn_select"> 적용 및 결과 출력 </button>
+
+        <br>
+        <br>
+        <br>
+
+            <div id="map_wrap" class="map_wrap">
+                <div id="map_div"></div>
+            </div>
+
+        <br>
+        <p>지도에 표시된 번호 순으로 배송하는 것을 권장합니다.</p>
+        <p>파란색 포인트는 트럭 배송지이며, 검은색 포인트는 마이크로 모빌리티 배송지입니다.</p>
+        <p>같은 번호는 한 번에 배송해야하며, 해당하는 포인트 중 파란색이 환승 지점입니다.</p>
+
+        <br>
+        <br>
+</div>
+
+  <!-- Footer -->
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+          <ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="#">About</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Contact</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Terms of Use</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Privacy Policy</a>
+            </li>
+          </ul>
+          <p class="text-muted small mb-4 mb-lg-0">&copy; Flink 2020. All Rights Reserved.</p>
+        </div>
+        <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fab fa-facebook fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-instagram fa-2x fa-fw"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+    </body>
+</html> 
