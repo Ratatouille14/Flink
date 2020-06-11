@@ -1,0 +1,246 @@
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="apple-mobile-web-app=capable" content="yes">
+
+
+        <!--link color : black-->
+        <style type="text/css">
+            a:link {color:black; text-decoration:none;}
+            a:visited {color:black; text-decoration: none;}
+            a:hover {color:black; text-decoration:none;}
+            a:active {color:black; text-decoration:none;}
+        </style>
+
+        <style>
+            #test_btn1{
+                border: 1px solid #4169E1;
+                background-color:#4169E1;
+                color:white;
+                margin-bottom: 5px;
+                margin-right: 5px;
+
+            }
+            #test_btn2{
+                border: 1px solid #4169E1;
+                background-color: rgba(0,0,0,0);
+                color: #4169E1;
+                margin-bottom: 5px;
+                margin-right: 5px;
+
+            }
+            #test_btn3{
+                border: 1px solid #4169E1;
+                background-color: rgba(0,0,0,0);
+                color: #4169E1;
+                margin-bottom: 5px;
+                margin-right: 5px;
+
+            }
+
+            #btn_group button{
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius:5px;
+
+  
+                padding:5px;
+            }
+            #btn_group button:hover{
+                color:white;
+                background-color:#4169E1;
+
+            }
+        </style>
+
+
+
+
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom fonts for this template -->
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+        <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+        <!-- Custom styles for this template -->
+        <link href="css/landing-page.min.css" rel="stylesheet">
+
+
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Flink 경로 안내</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://apis.openapi.sk.com/tmap/jsv2?version=1&appKey=l7xx84909dae75d54ef8a634e5f6be023dd1"></script>
+        <script type="text/javascript">
+            
+
+
+
+
+            var map;
+            
+            var marker_s, marekr_e, waypoint;
+            var resultMarkerArr = [];
+            //경로그림정보
+            var drawInfoArr = [];
+            var resultInfoArr = [];
+            
+            function initTmap(){
+                resultMarkerArr = [];
+                
+                //지도
+                map = new Tmapv2.Map("map_div", {
+                    center: new Tmapv2.LatLng(37.387928, 127.154871),
+                    width : "350px",
+                    height : "300px",
+                    zoom : 18,
+                    zoomControl : true,
+                    scrollwheel : true
+                    
+                });
+
+                $(document).ready(function(){
+
+                    $.getJSON("finalexample_m.json", function(mdata){
+
+                        marker = new Tmapv2.Marker({
+                            position : new Tmapv2.LatLng(mdata[0].coordinates[0], mdata[0].coordinates[1]),
+                            icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_t.png",
+                        iconSize : new Tmapv2.Size(24, 38),
+                        map:map
+                        });
+                        resultMarkerArr.push(marker);
+
+                        marker = new Tmapv2.Marker({
+                            position : new Tmapv2.LatLng(mdata[1].coordinates[0], mdata[1].coordinates[1]),
+                            icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_g_m_m.png",
+                        iconSize : new Tmapv2.Size(24, 38),
+                        map:map
+                        });
+                        resultMarkerArr.push(marker);
+
+                        marker = new Tmapv2.Marker({
+                            position : new Tmapv2.LatLng(mdata[2].coordinates[0], mdata[2].coordinates[1]),
+                            icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_g_m_m.png",
+                        iconSize : new Tmapv2.Size(24, 38),
+                        map:map
+                        });
+                        resultMarkerArr.push(marker);
+
+
+
+                        var polyline = new Tmapv2.Polyline({
+                        path: [
+                            new Tmapv2.LatLng(mdata[0].coordinates[0],mdata[0].coordinates[1]), // 선의 꼭짓점 좌표
+                            new Tmapv2.LatLng(mdata[1].coordinates[0],mdata[1].coordinates[1]), // 선의 꼭짓점 좌표
+                            new Tmapv2.LatLng(mdata[2].coordinates[0],mdata[2].coordinates[1]), // 선의 꼭짓점 좌표
+                            new Tmapv2.LatLng(mdata[0].coordinates[0],mdata[0].coordinates[1])
+                        ],
+                        strokeColor: "#FF0000", // 라인 색상
+                        strokeWeight: 6, // 라인 두께
+                        map: map // 지도 객체
+            });
+
+
+                document.getElementById("mlist0").innerHTML=mdata[0].name + " || capacity :" + mdata[0].capacity + " || weight :" + mdata[0].weight;
+
+                document.getElementById("mlist1").innerHTML=mdata[1].name + " || capacity :" + mdata[1].capacity + " || weight :" + mdata[1].weight;
+
+                document.getElementById("mlist2").innerHTML=mdata[2].name + " || capacity :" + mdata[2].capacity + " || weight :" + mdata[2].weight;
+
+                        
+
+                
+            });
+            });
+            }
+                
+
+        </script>
+    </head>
+    <body>
+
+
+      <!-- Navigation -->
+  <nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="a_index.html">Flink</a>
+    </div>
+  </nav>
+
+  <!-- Masthead -->
+  <header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h1 class="mb-5">Flink 경로 안내</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+    <!-- 맵 생성 실행 -->
+
+    <body onload="initTmap()">
+   <div style="padding:40px 10px 40px 10px;">
+
+    <div id="btn_group">
+        <button id="test_btn1" onclick="location.href='a_route_m.html'">환승 지점 1</button>
+        <button id="test_btn2" onclick="location.href='a_route_m2.html'">환승 지점 2</button>
+    </div>
+
+    
+
+    <br> 
+    <br>
+    <h3>환승 지점 및 배송지 안내</h3>
+    <br>    
+
+    <p id="result"></p>
+
+
+            <div id="map_wrap" class="map_wrap">
+                <div id="map_div"></div>
+            </div>
+
+        <br>
+        <p>위 경로는 실제 경로가 아닙니다.</p>
+        <p>포인트들은 환승 지점 및 micro mobility 배송지입니다.</p>
+        <br>
+        <h5>배송지 목록</h5>
+
+        <label for="cm0" id="mlist0"></label><br>
+        <label for="cm1" id="mlist1"></label><br>
+        <label for="cm2" id="mlist2"></label>
+
+
+        <br>
+        <br>
+</div>
+
+  <!-- Footer -->
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+  
+          <p class="text-muted small mb-4 mb-lg-0">&copy; Flink 2020. All Rights Reserved.</p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+
+    </body>
+</html> 
